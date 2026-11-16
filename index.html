@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カブトスペック比較</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <h3>カブトスペック比較サイト</h3>
+
+    <h5>ライダー、フォームを選択</h5>
+
+    <div class="select-container">
+ <select id="leftSelect">
+    <option value="0"selected>カブト マスクドフォーム</option>
+    <option value="1">カブト ライダーフォーム</option>
+    <option value="2">カブト ハイパーフォーム</option>
+    <option value="3">ガタック マスクドフォーム</option>
+    <option value="4">ガタック ライダーフォーム</option>
+    <option value="5">ガタック ハイパーフォーム</option>
+</select>
+
+<select id="rightSelect">
+    <option value="0">カブト マスクドフォーム</option>
+    <option value="1"selected>カブト ライダーフォーム</option>
+    <option value="2">カブト ハイパーフォーム</option>
+    <option value="3">ガタック マスクドフォーム</option>
+    <option value="4">ガタック ライダーフォーム</option>
+    <option value="5">ガタック ハイパーフォーム</option>
+</select>
+</div>
+
+<div class="container">
+    <div id="leftpanel" class="panel">
+        <h4>比較1</h4>
+
+        <img id="leftImage" src="" alt="画像">
+
+        <p class="row"><span class="label">名称: </span>
+        <span class="value value-name" id="leftName"></span>
+        </p>
+
+        <p class="row"><span class="label">身長:</span>
+        <span class="value" id="leftHeight"></span>
+        </p>
+
+        <p class="row"><span class="label">体重:</span>
+        <span class="value" id="leftWeight"></span>
+        </p>
+
+        <p class="row"><span class="label">パンチ力:</span>
+        <span class="value" id="leftPunch"></span>
+        </p>
+
+        <p class="row"><span class="label">キック力:</span>
+        <span class="value" id="leftKick"></span>
+        </p>
+
+        <p class="row"><span class="label">ジャンプ力(ひと跳び):</span>
+        <span class="value" id="leftJump"></span>
+        </p>
+
+        <p class="row"><span class="label">走力(100m):</span>
+        <span class="value" id="leftrunning"></span>
+        </p>
+    </div>
+
+    <div id="rightpanel" class="panel">
+        <h4>比較2</h4>
+
+        <img id="rightImage" src="" alt="画像">
+
+        <p class="row"><span class="label">名称:</span>
+        <span class="value value-name" id="rightName"></span>
+        </p>
+
+        <p class="row"><span class="label">身長:</span>
+        <span class="value" id="rightHeight"></span>
+        </p>
+
+        <p class="row"><span class="label">体重:</span>
+        <span class="value" id="rightWeight"></span>
+        </p>
+
+        <p class="row"><span class="label">パンチ力:</span>
+        <span class="value" id="rightPunch"></span>
+        </p>
+
+        <p class="row"><span class="label">キック力:</span>
+        <span class="value" id="rightKick"></span>
+        </p>
+
+        <p class="row"><span class="label">ジャンプ力(ひと跳び):</span>
+        <span class="value" id="rightJump"></span>
+        </p>
+
+        <p class="row"><span class="label">走力(100m):</span>
+        <span class="value" id="rightrunning"></span>
+        </p>
+    </div>
+</div>
+
+<script>
+const riders = [
+    {
+        name: "カブト<br>マスクドフォーム",
+        image:"images/カブトマスクド.PNG",
+        height: "190.0",
+        weight: "132",
+        punch: "8.0",
+        kick: "10.0",
+        jump: "20.0",
+        running: "8.9"
+    },
+    {
+        name: "カブト<br>ライダーフォーム",
+        image:"images/カブトライダー.PNG",
+        height: "195.0",
+        weight: "95.0",
+        punch: "3.0",
+        kick: "7.0",
+        jump: "37.0",
+        running: "5.8"
+    },
+    {
+        name: "カブト<br>ハイパーフォーム",
+        image:"images/カブトハイパー.PNG",
+        height: "198.0",
+        weight: "102.0",
+        punch: "10.0",
+        kick: "15.0",
+        jump: "50.0",
+        running: "4.2"
+    },
+    {
+        name: "ガタック<br>マスクドフォーム",
+        image:"images/ガタックマスクド.PNG",
+        height: "190.0",
+        weight: "134.0",
+        punch: "8.0",
+        kick: "9.0",
+        jump: "19.0",
+        running: "8.9"
+    },
+    {
+        name: "ガタック<br>ライダーフォーム",
+        image:"images/ガタックライダー.PNG",
+        height: "194.0",
+        weight: "97.0",
+        punch: "3.0",
+        kick: "7.0",
+        jump: "36.0",
+        running: "5.8"
+    },
+    {
+        name: "ガタック<br>ハイパーフォーム",
+        image:"images/ガタックハイパー.PNG",
+        height: "197.0",
+        weight: "104.0",
+        punch: "10.0",
+        kick: "15.0",
+        jump: "49.0",
+        running: "4.2"
+    }
+];
+
+const rider1 = riders[0];
+
+document.getElementById("leftImage").src = rider1.image;
+document.getElementById("leftName").innerHTML = rider1.name;
+document.getElementById("leftHeight").textContent = rider1.height + "cm";
+document.getElementById("leftWeight").textContent = rider1.weight + "kg";
+document.getElementById("leftPunch").textContent = rider1.punch + "t";
+document.getElementById("leftKick").textContent = rider1.kick + "t";
+document.getElementById("leftJump").textContent = rider1.jump + "m";
+document.getElementById("leftrunning").textContent = rider1.running + "秒";
+
+const rider2 = riders[1];
+
+document.getElementById("rightImage").src = rider2.image;
+document.getElementById("rightName").innerHTML = rider2.name;
+document.getElementById("rightHeight").textContent = rider2.height + "cm";
+document.getElementById("rightWeight").textContent = rider2.weight + "kg";
+document.getElementById("rightPunch").textContent = rider2.punch + "t";
+document.getElementById("rightKick").textContent = rider2.kick + "t";
+document.getElementById("rightJump").textContent = rider2.jump + "m";
+document.getElementById("rightrunning").textContent = rider2.running + "秒";
+
+document.getElementById("leftSelect").addEventListener("change", function() {
+    const selectedIndex = this.value;
+    const selectedRider = riders[selectedIndex];
+
+    document.getElementById("leftImage").src = selectedRider.image;
+    document.getElementById("leftName").innerHTML = selectedRider.name;
+    document.getElementById("leftHeight").textContent = selectedRider.height + "cm";
+    document.getElementById("leftWeight").textContent = selectedRider.weight + "kg";
+    document.getElementById("leftPunch").textContent = selectedRider.punch + "t";
+    document.getElementById("leftKick").textContent = selectedRider.kick + "t";
+    document.getElementById("leftJump").textContent = selectedRider.jump + "m";
+    document.getElementById("leftrunning").textContent = selectedRider.running + "秒";
+});
+
+document.getElementById("rightSelect").addEventListener("change", function() {
+    const selectedIndex = this.value;
+    const selectedRider = riders[selectedIndex];
+
+    document.getElementById("rightImage").src = selectedRider.image;
+    document.getElementById("rightName").innerHTML = selectedRider.name;
+    document.getElementById("rightHeight").textContent = selectedRider.height + "cm";
+    document.getElementById("rightWeight").textContent = selectedRider.weight + "kg";
+    document.getElementById("rightPunch").textContent = selectedRider.punch + "t";
+    document.getElementById("rightKick").textContent = selectedRider.kick + "t";
+    document.getElementById("rightJump").textContent = selectedRider.jump + "m";
+    document.getElementById("rightrunning").textContent = selectedRider.running + "秒";
+});
+</script>
+</body>
+</html>
